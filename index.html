@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YTS Products｜遊漁船・建設業向けのアプリ開発</title>
+<meta name="description" content="YTS Products は、遊漁船や建設業など小さな事業者のための Web アプリ・デスクトップアプリを企画から開発まで手がけています。">
+<meta property="og:title" content="YTS Products">
+<meta property="og:description" content="海と現場で、本当に使える道具を。遊漁船・建設業向けのアプリ開発とホームページ制作。">
+<meta property="og:image" content="logo-mark.webp">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f3f0ea;--ink:#161514;--sub:#4a4642;--muted:#5c5853;--line:#d9d3c8;--accent:#b3141a;--gold:#d4b46a;--dline:#3a3734;--dsub:#bdb7ad}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Noto Sans JP',system-ui,sans-serif;font-size:16px;line-height:1.8}
+a{color:var(--ink)}a:hover{color:#8f1015}
+img{max-width:100%}
+.wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+.mincho{font-family:'Shippori Mincho',serif;font-weight:700;letter-spacing:.04em}
+.label{font-size:12px;letter-spacing:.32em;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 32px;text-decoration:none;font-size:13px;letter-spacing:.2em}
+.btn-dark{background:var(--ink);color:var(--paper)}.btn-dark:hover{color:#fff;background:#2a2826}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}
+
+header{position:sticky;top:0;z-index:10;background:rgba(243,240,234,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(6px)}
+.hbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 32px;padding-top:14px;padding-bottom:14px}
+.hbar img{height:52px;width:auto;display:block}
+nav{display:flex;flex-wrap:wrap;gap:4px 8px;font-size:13px;letter-spacing:.18em;font-weight:500}
+nav a{padding:12px 14px;text-decoration:none}
+
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:56px;padding-top:96px;padding-bottom:120px}
+.hero-text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.hero-kicker{display:flex;align-items:center;gap:16px}
+.hero-kicker i{display:block;width:48px;height:1px;background:var(--accent)}
+.hero h1{margin:0;font-size:clamp(34px,5vw,64px);line-height:1.35}
+.hero p{margin:0;max-width:520px;color:var(--sub)}
+.hero-btns{display:flex;flex-wrap:wrap;gap:16px;margin-top:8px}
+.hero-logo{flex:1 1 440px;min-width:0;display:flex;justify-content:center}
+.hero-logo img{width:100%;max-width:560px;height:auto;display:block}
+
+.dark{background:var(--ink);color:var(--paper)}
+.sec{padding-top:112px;padding-bottom:120px;display:flex;flex-direction:column;gap:56px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.sec-head>div{display:flex;flex-direction:column;gap:12px}
+.sec h2{margin:0;font-size:clamp(28px,3.6vw,44px);line-height:1.4}
+.dark .label{color:var(--gold)}
+.dark .lead{margin:0;max-width:440px;color:var(--dsub);font-size:15px}
+
+.group{display:flex;flex-direction:column;gap:24px}
+.ghead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 20px;border-bottom:1px solid var(--dline);padding-bottom:16px}
+.ghead h3{margin:0;font-size:26px;letter-spacing:.08em;color:var(--paper)}
+.ghead .en{font-size:12px;letter-spacing:.28em;color:var(--gold)}
+.ghead .gl{font-size:14px;color:var(--dsub)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--dline);border:1px solid var(--dline)}
+.card{background:var(--ink);padding:36px 32px 32px;display:flex;flex-direction:column;gap:14px;min-height:260px}
+.card .meta{display:flex;justify-content:space-between;gap:12px;font-size:12px;letter-spacing:.2em;color:#a49e94}
+.card h4{margin:8px 0 0;font-size:22px;color:var(--paper)}
+.card p{margin:0;color:var(--dsub);font-size:14px;flex-grow:1}
+.status{display:inline-flex;align-items:center;min-height:44px;font-size:13px;letter-spacing:.16em;color:var(--gold)}
+.cases{display:flex;flex-direction:column;align-items:flex-start}
+.case{display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--gold);text-decoration:none;font-size:13px;letter-spacing:.14em}
+.case:hover{color:#ecd59c}
+.case i{display:block;width:6px;height:6px;border-radius:50%;background:var(--accent)}
+.case span{border-bottom:1px solid rgba(212,180,106,.5);padding-bottom:2px}
+
+.contact{display:flex;flex-wrap:wrap;gap:64px;padding-top:112px;padding-bottom:120px}
+.contact-info{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.contact-info>p{margin:0;color:var(--sub);font-size:15px}
+.topics{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.topics li{display:flex;gap:20px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--line)}
+.topics .no{font-size:12px;letter-spacing:.2em;color:var(--accent)}
+.topics .t{display:block;font-size:18px}
+.topics .d{display:block;font-size:14px;color:var(--sub)}
+form{flex:1 1 460px;min-width:0;background:#fff;border:1px solid var(--line);padding:40px;display:flex;flex-direction:column;gap:22px}
+form label{display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.08em}
+form .req{color:var(--accent);margin-left:6px;font-size:11px}
+form .row{display:flex;flex-wrap:wrap;gap:22px}
+form .row label{flex:1 1 200px}
+input,select,textarea{min-height:48px;padding:12px 14px;border:1px solid #b9b2a6;background:#fbfaf7;font:inherit;font-size:15px;color:var(--ink);letter-spacing:0;width:100%;border-radius:0}
+textarea{resize:vertical;line-height:1.7}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:1px}
+form button{min-height:56px;border:none;background:var(--ink);color:var(--paper);font:inherit;font-size:14px;letter-spacing:.24em;cursor:pointer}
+form button:hover{background:#2a2826}
+.err{margin:0;font-size:13px;color:#a3121a}
+.note{margin:0;font-size:12px;color:var(--muted)}
+
+footer{background:var(--ink);color:var(--dsub)}
+.fwrap{padding-top:64px;padding-bottom:40px;display:flex;flex-direction:column;gap:40px}
+.ftop{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}
+.ftop .name{font-size:26px;letter-spacing:.12em;color:var(--paper);display:block}
+.ftop small{font-size:13px}
+footer nav a{color:var(--paper);padding:12px;font-size:12px}
+.fline{height:1px;background:var(--dline)}
+.fbot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;letter-spacing:.1em}
+.fbot a{color:var(--dsub)}
+
+@media (max-width:640px){
+  .wrap{padding-left:20px;padding-right:20px}
+  .hero{padding-top:56px;padding-bottom:80px;gap:32px}
+  .hero-logo{order:-1}
+  .sec,.contact{padding-top:80px;padding-bottom:88px}
+  form{padding:28px 20px}
+  .hbar img{height:42px}
+  nav a{padding:10px 8px;font-size:12px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hbar">
+    <a href="#home" aria-label="YTS Products ホーム"><img src="logo-wide.webp" alt="YTS Products" width="156" height="52"></a>
+    <nav aria-label="メインメニュー">
+      <a href="#home">HOME</a>
+      <a href="#products">PRODUCTS</a>
+      <a href="#contact">CONTACT US</a>
+      <a href="https://www.instagram.com/eishinmaru_yanagi/" target="_blank" rel="noopener">INSTAGRAM</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="home" class="wrap hero" aria-labelledby="hero-title">
+  <div class="hero-text">
+    <div class="hero-kicker label"><i aria-hidden="true"></i><span>YTS PRODUCTS</span></div>
+    <h1 id="hero-title" class="mincho">海と現場で、<br>本当に使える道具を。</h1>
+    <p>遊漁船や建設業など、小さな事業者のための Web アプリ・デスクトップアプリを企画から開発まで手がけています。毎日の仕事を、少しだけ軽く。</p>
+    <div class="hero-btns">
+      <a class="btn btn-dark" href="#products">PRODUCTS を見る</a>
+      <a class="btn btn-line" href="#contact">CONTACT US</a>
+    </div>
+  </div>
+  <div class="hero-logo"><img src="logo-mark.webp" alt="YTS Products ロゴ（真鯛と筆文字のYTS）" width="960" height="640"></div>
+</section>
+
+<section id="products" class="dark" aria-labelledby="products-title">
+  <div class="wrap sec">
+    <div class="sec-head">
+      <div>
+        <span class="label">01 — PRODUCTS</span>
+        <h2 id="products-title" class="mincho">プロダクト</h2>
+      </div>
+      <p class="lead">現場の声から生まれた、ニッチで実用的なツール群。ブラウザですぐに使えるものから、オフラインで動くデスクトップアプリまで。</p>
+    </div>
+
+    <div class="group">
+      <div class="ghead"><h3 class="mincho">遊漁船向け</h3><span class="en">FOR FISHING CHARTERS</span><span class="gl">釣り船の予約・受付・運航管理を、もっとスムーズに。</span></div>
+      <div class="cards">
+        <article class="card">
+          <div class="meta"><span>F-01</span><span>Web予約</span></div>
+          <h4 class="mincho">遊漁船 予約システム</h4>
+          <p>Web からの予約受付、会員登録、マイページまで。電話対応の手間を減らし、お客様もいつでも予約できます。</p>
+          <div class="cases"><a class="case" href="https://eishinmaru.github.io/eishinmaru-reserve/eishinmaru_reserve.html" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>淡路島 栄真丸で導入中</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>F-02</span><span>名簿管理</span></div>
+          <h4 class="mincho">乗船名簿システム</h4>
+          <p>乗船者情報の入力から名簿の作成・保管まで。出船前の受付をスマートフォンひとつで。</p>
+          <div class="cases"><a class="case" href="https://eishinmaru.github.io/eishinmaru-reserve/eishinmaru_reserve.html" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>淡路島 栄真丸で導入中</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="card">
+          <div class="meta"><span>F-03</span><span>運航管理</span></div>
+          <h4 class="mincho">出船スケジュール管理</h4>
+          <p>出船日・便・定員をまとめて管理。予約状況と連動する運航スケジュールツール。</p>
+          <span class="status">COMING SOON</span>
+        </article>
+        <article class="card">
+          <div class="meta"><span>F-04</span><span>Web制作</span></div>
+          <h4 class="mincho">遊漁船ホームページ制作</h4>
+          <p>釣果や料金、予約導線までを備えた遊漁船の公式サイトを制作。スマートフォンでも見やすいデザインで集客を支えます。</p>
+          <div class="cases">
+            <a class="case" href="https://ginrin-maru.vercel.app/" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>銀鱗丸 公式サイト</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+            <a class="case" href="https://awajiyamato.github.io/yamato/" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>大和 公式サイト</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="ghead"><h3 class="mincho">建設業向け</h3><span class="en">FOR CONSTRUCTION</span><span class="gl">職人・一人親方の書類仕事を、現場で終わらせる。</span></div>
+      <div class="cards">
+        <article class="card"><div class="meta"><span>C-01</span><span>見積</span></div><h4 class="mincho">パッと見積</h4><p>現場でその場で見積もりを作成。PDF 出力、LINE で共有まで。</p></article>
+        <article class="card"><div class="meta"><span>C-02</span><span>報告書</span></div><h4 class="mincho">ゲンバメモ</h4><p>施工前後の写真をペアで管理し、そのまま報告書として出力できる現場記録アプリ。</p></article>
+        <article class="card"><div class="meta"><span>C-03</span><span>提案書</span></div><h4 class="mincho">簡単工事提案書メーカー</h4><p>項目を選ぶだけで、見栄えのよい工事提案書が完成。営業の準備時間を短縮します。</p></article>
+        <article class="card"><div class="meta"><span>C-04</span><span>経費</span></div><h4 class="mincho">領収書スキャナー</h4><p>撮るだけで領収書を読み取り、スプレッドシートへ自動で整理。経費処理をシンプルに。</p></article>
+        <article class="card"><div class="meta"><span>C-05</span><span>図面</span></div><h4 class="mincho">YTS 電工CAD</h4><p>電気工事に特化した 2D CAD。現場目線で図面作成をサポートします。</p><span class="status">COMING SOON</span></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="wrap contact" aria-labelledby="contact-title">
+  <div class="contact-info">
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <span class="label">02 — CONTACT US</span>
+      <h2 id="contact-title" class="mincho" style="margin:0;font-size:clamp(28px,3.6vw,44px);line-height:1.4">お問い合わせ・ご依頼</h2>
+    </div>
+    <p>「こんなツールがあれば」「うちの船のホームページを作りたい」——小さなご相談から承ります。内容を確認のうえ、担当よりご連絡いたします。</p>
+    <ul class="topics">
+      <li><span class="no">01</span><span><span class="t mincho">アプリ・システム開発</span><span class="d">業務に合わせた Web アプリ・デスクトップアプリを企画から開発まで。</span></span></li>
+      <li><span class="no">02</span><span><span class="t mincho">遊漁船ホームページ制作</span><span class="d">予約や名簿と連動した、遊漁船の公式サイトを制作します。</span></span></li>
+      <li><span class="no">03</span><span><span class="t mincho">プロダクトについて</span><span class="d">各アプリの使い方や導入についてのご質問もお気軽に。</span></span></li>
+    </ul>
+  </div>
+  <form id="cform" aria-label="お問い合わせフォーム" novalidate>
+    <label>お問い合わせ種別<span class="req">必須</span>
+      <select name="kind">
+        <option>アプリ・システム開発のご依頼</option>
+        <option>遊漁船ホームページ制作のご依頼</option>
+        <option>プロダクトについてのご質問</option>
+        <option>その他</option>
+      </select>
+    </label>
+    <div class="row">
+      <label>お名前<span class="req">必須</span><input type="text" name="name" autocomplete="name" placeholder="山田 太郎"></label>
+      <label>会社名・屋号<input type="text" name="org" autocomplete="organization" placeholder="〇〇丸 / 〇〇工業"></label>
+    </div>
+    <label>メールアドレス<span class="req">必須</span><input type="email" name="email" autocomplete="email" placeholder="you@example.com"></label>
+    <label>お問い合わせ内容<span class="req">必須</span><textarea name="msg" rows="6" placeholder="ご依頼内容やご希望の時期などをご記入ください"></textarea></label>
+    <p class="err" id="cerr" role="alert" hidden></p>
+    <button type="submit">送信する</button>
+    <p class="note">「送信する」を押すとメールアプリが開きます。内容をご確認のうえ送信してください。いただいた情報は、お問い合わせへの回答のみに使用します。</p>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="wrap fwrap">
+    <div class="ftop">
+      <div><span class="name mincho">YTS Products</span><small>海と現場のための、ソフトウェア工房。</small></div>
+      <nav aria-label="フッターメニュー">
+        <a href="#home">HOME</a>
+        <a href="#products">PRODUCTS</a>
+        <a href="#contact">CONTACT US</a>
+        <a href="https://www.instagram.com/eishinmaru_yanagi/" target="_blank" rel="noopener">INSTAGRAM</a>
+      </nav>
+    </div>
+    <div class="fline"></div>
+    <div class="fbot">
+      <span>© <span id="yr">2026</span> YTS Products</span>
+      <a href="https://x.com/yts_apps2026" target="_blank" rel="noopener">X　@yts_apps2026</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var form = document.getElementById('cform');
+  var err = document.getElementById('cerr');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = function (n) { return (form.elements[n].value || '').trim(); };
+    var missing = [];
+    if (!v('name')) missing.push('お名前');
+    if (!v('email')) missing.push('メールアドレス');
+    if (!v('msg')) missing.push('お問い合わせ内容');
+    if (missing.length) { err.textContent = missing.join('・') + 'をご入力ください。'; err.hidden = false; return; }
+    err.hidden = true;
+    var subject = '【お問い合わせ】' + v('kind') + '（' + v('name') + ' 様）';
+    var body = 'お問い合わせ種別：' + v('kind') + '\nお名前：' + v('name') + '\n会社名・屋号：' + v('org') + '\nメールアドレス：' + v('email') + '\n\nお問い合わせ内容：\n' + v('msg');
+    window.location.href = 'mailto:yts.products@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+});
+</script>
+</body>
+</html>
